@@ -1,0 +1,1 @@
+# Power-Ampache-Lyrics-Plugin
