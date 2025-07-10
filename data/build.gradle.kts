@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -11,11 +13,22 @@ android {
     namespace = "luci.sixsixsix.powerampache2.lyricsplugin.data"
     compileSdk = 35
 
+    val properties = Properties()
+    val propertiesFile = project.rootProject.file("secrets.properties")
+    if (propertiesFile.exists()) {
+        properties.load(propertiesFile.inputStream())
+    } else {
+        properties.load(project.rootProject.file("secretsnot.properties").inputStream())
+    }
+    val bearerToken = properties.getProperty("GENIUS_BEARER_TOKEN")
+
     defaultConfig {
         minSdk = 30
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+        buildConfigField("String", "BEARER_TOKEN", bearerToken)
     }
 
     buildTypes {
@@ -34,6 +47,9 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {
@@ -47,7 +63,7 @@ dependencies {
     kapt(libs.androidx.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.hilt.common)
-    implementation(libs.androidx.hilt.work)
+    //implementation(libs.androidx.hilt.work)
 
     // --- Retrofit --- //
     implementation(libs.retrofit)

@@ -17,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PowerAmpache2LyricsPlugin"
-        tools:targetApi="31" >
+        tools:targetApi="35" >
 
         <activity android:name=".MainActivity"
             android:exported="true">
@@ -30,9 +30,8 @@
         <service
             android:name="luci.sixsixsix.powerampache2.lyricsplugin.LyricsFetcherService"
             android:exported="true"
-            android:process="luci.sixsixsix.powerampache2.debug"
             android:permission="luci.sixsixsix.powerampache2.permission.BIND_LYRICS_PLUGIN" />
-<!--            android:foregroundServiceType="dataSync" />-->
+        <!--            android:process="luci.sixsixsix.powerampache2.debug" />-->
     </application>
 
 </manifest>

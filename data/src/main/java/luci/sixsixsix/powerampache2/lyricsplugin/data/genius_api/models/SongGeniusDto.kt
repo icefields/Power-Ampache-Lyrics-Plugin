@@ -15,11 +15,13 @@ data class SongGeniusDto(
 
 fun SongGeniusDto.toSongGenius(songTitle: String, artistName: String): SongLyrics {
     for (hit in response.hits) {
-        val isArtistMatch = (artistName == hit.result.primaryArtist.name ||
-                hit.result.artistNames?.contains(artistName) == true)
-        val isSongMatch = (songTitle == hit.result.title ||
-                hit.result.fullTitle?.contains(songTitle) == true ||
-                hit.result.titleWithFeatured?.contains(songTitle) == true)
+        val isArtistMatch = (artistName.lowercase() == hit.result.primaryArtist.name?.lowercase() ||
+                hit.result.artistNames?.lowercase()?.contains(artistName.lowercase()) == true)
+
+        val isSongMatch = (songTitle.lowercase() == hit.result.title?.lowercase() ||
+                hit.result.fullTitle?.lowercase()?.contains(songTitle.lowercase()) == true ||
+                hit.result.titleWithFeatured?.lowercase()?.contains(songTitle.lowercase()) == true)
+
         if (isArtistMatch && isSongMatch) {
             return hit.result.run {
                 SongLyrics(lyricsUrl = url)

@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
     id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")  // <- this one is essential
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -14,8 +14,8 @@ android {
         applicationId = "luci.sixsixsix.powerampache2.lyricsplugin"
         minSdk = 30
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "0.01-02"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -79,7 +79,7 @@ dependencies {
     kapt(libs.androidx.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.hilt.common)
-    implementation(libs.androidx.hilt.work)
+    //implementation(libs.androidx.hilt.work)
     //implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
 
     // --- Retrofit --- //
