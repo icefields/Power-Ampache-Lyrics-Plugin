@@ -9,6 +9,7 @@ import android.os.Looper
 import android.os.Message
 import android.os.Messenger
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
 import luci.sixsixsix.powerampache2.lyricsplugin.common.KEY_REQUEST_ALBUM_TITLE
 import luci.sixsixsix.powerampache2.lyricsplugin.common.KEY_REQUEST_ARTIST_NAME
 import luci.sixsixsix.powerampache2.lyricsplugin.common.KEY_REQUEST_JSON
@@ -24,6 +25,9 @@ class LyricsFetcherService : Service() {
 
     @Inject
     lateinit var fetchLyricsUseCase: FetchLyricsUseCase
+
+    @Inject
+    lateinit var applicationCoroutineScope: CoroutineScope
 
     private val messenger = Messenger(object : Handler(Looper.getMainLooper()) {
         override fun handleMessage(msg: Message) {

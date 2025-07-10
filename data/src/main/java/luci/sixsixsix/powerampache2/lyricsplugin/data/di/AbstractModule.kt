@@ -8,11 +8,11 @@ import luci.sixsixsix.powerampache2.lyricsplugin.data.genius_api.LyricsFetcherIm
 import luci.sixsixsix.powerampache2.lyricsplugin.domain.LyricsFetcher
 
 
-//@Module
-//@InstallIn(SingletonComponent::class)
-//abstract class AbstractModule {
-//    @Binds
-//    abstract fun bindLyricsFetcher(
-//        lyricsFetcherImpl: LyricsFetcherImpl
-//    ): LyricsFetcher
-//}
+@Module
+@InstallIn(SingletonComponent::class)
+abstract class AbstractModule {
+    @Binds
+    abstract fun bindLyricsFetcher(
+        lyricsFetcherImpl: LyricsFetcherImpl
+    ): LyricsFetcher
+}

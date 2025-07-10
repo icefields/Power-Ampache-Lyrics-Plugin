@@ -22,7 +22,15 @@ fun SongGeniusDto.toSongGenius(songTitle: String, artistName: String): SongLyric
                 hit.result.titleWithFeatured?.contains(songTitle) == true)
         if (isArtistMatch && isSongMatch) {
             return hit.result.run {
-                SongLyrics(
+                SongLyrics(lyricsUrl = url)
+            }
+        }
+    }
+    throw Exception("No Lyrics Found")
+}
+
+
+
 //                    artistHeaderImageUrl = primaryArtist.headerImageUrl ?: "",
 //                    artistId = primaryArtist.id ?: 0,
 //                    artistImageUrl = primaryArtist.imageUrl ?: "",
@@ -43,12 +51,8 @@ fun SongGeniusDto.toSongGenius(songTitle: String, artistName: String): SongLyric
 //                    songArtImageUrl = songArtImageUrl ?: "",
 //                    title = title ?: "",
 //                    titleWithFeatured = titleWithFeatured ?: "",
-                    lyricsUrl = url
-                )
-            }
-        }
-    }
-    throw Exception("No Lyrics Found")
+
+
 
 
 //    response.hits.firstOrNull()?.result?.run {
@@ -76,4 +80,3 @@ fun SongGeniusDto.toSongGenius(songTitle: String, artistName: String): SongLyric
 //        lyricsUrl = url
 //    )
 //}
-}
