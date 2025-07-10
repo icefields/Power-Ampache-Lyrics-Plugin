@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Power Ampache 2 Lyrics Plugin"
 include(":app")
- 
+include(":data")
+include(":domain")

@@ -1,23 +1,28 @@
 [versions]
+activityCompose = "1.10.1"
 agp = "8.9.2"
-kotlin = "2.0.21"
+kotlin = "2.1.21"
 coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-appcompat = "1.7.0"
+appcompat = "1.7.1"
 material = "1.12.0"
 gson = "2.13.1"
 hiltAndroid = "2.56.2"
 hiltVersion = "1.2.0"
-lifecycleVersion = "2.9.0"
+lifecycleVersion = "2.9.1"
+materialVersion = "1.8.3"
 okhttpVersion = "4.12.0" #"5.0.0-alpha.14"
 retrofit = "2.11.0"
-composeVersion = "1.8.2"
+composeVersion = "1.8.3"
+ksp = "2.1.21-2.0.2"
 
 
 [libraries]
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-material = { module = "androidx.compose.material:material", version.ref = "materialVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -50,3 +55,6 @@ gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

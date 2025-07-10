@@ -2,7 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
-   // id("kotlin-kapt")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")  // <- this one is essential
 }
 
 android {
@@ -57,7 +58,8 @@ android {
 
 
 dependencies {
-    implementation(libs.okhttp) // or latest version
+    implementation(project(":domain"))
+    implementation(project(":data"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -66,16 +68,18 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.ui.graphics)
     implementation(libs.compose.lifecycle.viewmodel)
-    implementation("androidx.activity:activity-compose:1.10.1") // Required for setContent
-    implementation("androidx.compose.material:material:1.8.3")
+    implementation(libs.androidx.activity.compose) // Required for setContent
+    implementation(libs.androidx.material)
+
+//    implementation("androidx.lifecycle:lifecycle-service:2.9.1")
 
     // --- Dagger Hilt --- //
     implementation(libs.hilt.android)
-//    kapt(libs.hilt.android.compiler)
-//    kapt(libs.androidx.hilt.compiler)
-//    implementation(libs.androidx.hilt.navigation.compose)
-//    implementation(libs.androidx.hilt.common)
-//    implementation(libs.androidx.hilt.work)
+    kapt(libs.hilt.android.compiler)
+    kapt(libs.androidx.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.hilt.common)
+    implementation(libs.androidx.hilt.work)
     //implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
 
     // --- Retrofit --- //
