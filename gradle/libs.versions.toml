@@ -13,6 +13,8 @@ okhttpVersion = "4.12.0" #"5.0.0-alpha.14"
 retrofit = "2.11.0"
 composeVersion = "1.8.3"
 activityCompose = "1.10.1"
+roomVersion = "2.7.2"
+
 ksp = "2.1.21-2.0.2"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -49,6 +51,10 @@ retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = 
 retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 
+# --- Room --- #
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomVersion" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

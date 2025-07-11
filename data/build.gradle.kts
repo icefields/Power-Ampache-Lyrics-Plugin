@@ -29,6 +29,10 @@ android {
         consumerProguardFiles("consumer-rules.pro")
 
         buildConfigField("String", "BEARER_TOKEN", bearerToken)
+
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
     }
 
     buildTypes {
@@ -73,6 +77,14 @@ dependencies {
 
     // JSON serialization
     implementation(libs.gson)
+
+    // Room
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
+    // Kotlin Extensions and Coroutines support for Room
+    implementation(libs.room.ktx)
+
+    // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

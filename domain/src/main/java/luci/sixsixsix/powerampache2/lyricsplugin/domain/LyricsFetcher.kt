@@ -9,4 +9,6 @@ interface LyricsFetcher {
         artistName: String,
         callback: (SongLyrics?) -> Unit
     )
+
+    suspend fun clearStoredLyrics()
 }

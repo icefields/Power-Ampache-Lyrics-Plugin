@@ -2,6 +2,7 @@ package luci.sixsixsix.powerampache2.lyricsplugin.data.di
 
 import android.app.Application
 import android.content.Context
+import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -9,11 +10,13 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import luci.sixsixsix.powerampache2.lyricsplugin.data.common.DATABASE_NAME
 import luci.sixsixsix.powerampache2.lyricsplugin.data.genius_api.MainNetwork
 import luci.sixsixsix.powerampache2.lyricsplugin.data.genius_api.common.BASE_URL
 import luci.sixsixsix.powerampache2.lyricsplugin.data.genius_api.common.TIMEOUT_CONNECTION_S
 import luci.sixsixsix.powerampache2.lyricsplugin.data.genius_api.common.TIMEOUT_READ_S
 import luci.sixsixsix.powerampache2.lyricsplugin.data.genius_api.common.TIMEOUT_WRITE_S
+import luci.sixsixsix.powerampache2.lyricsplugin.data.genius_api.local.PluginDatabase
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -62,16 +65,12 @@ object DataModule {
         retrofit.create(MainNetwork::class.java)
 
 
-//    @Provides
-//    @Singleton
-//    fun provideMusicDatabase(application: Application): MusicDatabase =
-//        Room.databaseBuilder(
-//            application,
-//            MusicDatabase::class.java,
-//            DB_LOCAL_NAME
-//        )
-//            //.fallbackToDestructiveMigration()
-//            //.addMigrations(MIGRATION_73_74())
-//            .build()
-
+    @Provides
+    @Singleton
+    fun providePluginDatabase(application: Application): PluginDatabase =
+        Room.databaseBuilder(
+            application,
+            PluginDatabase::class.java,
+            DATABASE_NAME
+        ).build()
 }
