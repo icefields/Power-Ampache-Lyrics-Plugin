@@ -21,7 +21,7 @@ fun ChangeTokenView(
     onTokenChange: (String) -> Unit
 ) {
     // Do not visualize token if using the default one.
-    val tokenVisibleValue = if (token != BEARER_TOKEN) token.value else ""
+    val tokenVisibleValue = if (token != BEARER_TOKEN) token else ""
 
     Column(modifier) {
         Text(
