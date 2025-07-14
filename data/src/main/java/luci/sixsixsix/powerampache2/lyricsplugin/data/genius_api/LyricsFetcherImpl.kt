@@ -37,7 +37,10 @@ class LyricsFetcherImpl @Inject constructor(
                         bearerToken = "Bearer ${sharedPreferencesManager.token}",
                         songTitle = songTitle
                     ).toSongGenius(songTitle, artistName).also {
-                        db.dao.updateLyrics(it.toLyricsEntity(artistName = artistName, songTitle = songTitle))
+                        val isLyrics = it.lyrics.isNotBlank() || it.lyricsUrl.isNotBlank()
+                        if (isLyrics && songTitle.isNotBlank() && artistName.isNotBlank()) {
+                            db.dao.updateLyrics(it.toLyricsEntity(artistName = artistName, songTitle = songTitle))
+                        }
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()
