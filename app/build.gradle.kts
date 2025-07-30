@@ -14,8 +14,8 @@ android {
         applicationId = "luci.sixsixsix.powerampache2.lyricsplugin"
         minSdk = 30
         targetSdk = 35
-        versionCode = 4
-        versionName = "0.01-02"
+        versionCode = 7
+        versionName = "0.01-07"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

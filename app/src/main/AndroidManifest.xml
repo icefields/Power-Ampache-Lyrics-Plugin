@@ -3,9 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <permission android:name="luci.sixsixsix.powerampache2.permission.BIND_LYRICS_PLUGIN"
-        android:protectionLevel="normal" />
-    <uses-permission android:name="luci.sixsixsix.powerampache2.permission.BIND_LYRICS_PLUGIN" />
+
+<!--    <uses-permission android:name="luci.sixsixsix.powerampache2.permission.BIND_LYRICS_PLUGIN" />-->
+<!--    <uses-permission android:name="luci.sixsixsix.powerampache2.free.plugin.permission.BIND_LYRICS_PLUGIN" />-->
+<!--    <uses-permission android:name="luci.sixsixsix.powerampache2.free.debug.plugin.permission.BIND_LYRICS_PLUGIN" />-->
+<!--    <uses-permission android:name="luci.sixsixsix.powerampache2.playstore.plugin.permission.BIND_LYRICS_PLUGIN" />-->
+<!--    <uses-permission android:name="luci.sixsixsix.powerampache2.playstore.debug.plugin.permission.BIND_LYRICS_PLUGIN" />-->
+<!--    <uses-permission android:name="luci.sixsixsix.powerampache2.plugin.permission.BIND_LYRICS_PLUGIN" />-->
+<!--    <uses-permission android:name="luci.sixsixsix.powerampache2.debug.plugin.permission.BIND_LYRICS_PLUGIN" />-->
+<!--    <uses-permission android:name="luci.sixsixsix.powerampache2.FDroid.plugin.permission.BIND_LYRICS_PLUGIN" />-->
+<!--    <uses-permission android:name="luci.sixsixsix.powerampache2.FDroid.debug.plugin.permission.BIND_LYRICS_PLUGIN" />-->
+
 
     <application
         android:name=".LyricsPluginApplication"
@@ -30,9 +38,12 @@
 
         <service
             android:name="luci.sixsixsix.powerampache2.lyricsplugin.LyricsFetcherService"
-            android:exported="true"
+            android:exported="true" />
+<!--
             android:permission="luci.sixsixsix.powerampache2.permission.BIND_LYRICS_PLUGIN"
-        android:process=":luci.sixsixsix.powerampache2.lyrics" />
+
+android:process=":luci.sixsixsix.powerampache2.lyrics" />-->
+
     </application>
 
 </manifest>
