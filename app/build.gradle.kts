@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.kotlin.compose)
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
 }
@@ -58,6 +58,7 @@ android {
 
 
 dependencies {
+    implementation(project(":PowerAmpache2Theme"))
     implementation(project(":domain"))
     implementation(project(":data"))
 

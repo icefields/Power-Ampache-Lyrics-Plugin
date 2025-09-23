@@ -4,5 +4,5 @@
     <string name="token_insert_title">Enter your Genius token</string>
     <string name="token_insert_label">token</string>
     <string name="clear_stored_title">Clear Stored Lyrics</string>
-    <string name="clear_stored_subtitle">Try this if you start getting invalid lyrics in Power Ampache</string>
+    <string name="clear_stored_subtitle">Try— this if you start getting invalid lyrics in Power Ampache</string>
 </resources>
