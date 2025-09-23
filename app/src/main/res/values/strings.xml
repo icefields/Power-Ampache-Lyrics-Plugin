@@ -1,8 +1,19 @@
 <resources>
     <string name="app_name">Genius Lyrics Power Ampache 2 Plugin</string>
     <string name="app_name_topBar">Genius Lyrics Power Ampache</string>
-    <string name="token_insert_title">Enter your Genius token</string>
-    <string name="token_insert_label">token</string>
+    <string name="token_insert_title">If you have one, enter your Genius token here</string>
+    <string name="token_insert_label">Custom Genius Token</string>
     <string name="clear_stored_title">Clear Stored Lyrics</string>
-    <string name="clear_stored_subtitle">Try— this if you start getting invalid lyrics in Power Ampache</string>
+    <string name="clear_stored_subtitle">Try this if you start getting invalid lyrics in Power Ampache</string>
+
+    <string name="lyrics_plugin_title">🎵 Lyrics Plugin Setup</string>
+    <string name="lyrics_plugin_paragraph1">
+        This plugin integrates seamlessly with Power Ampache 2. Once installed, no additional setup is required — it will begin working automatically within the app.
+    </string>
+    <string name="lyrics_plugin_paragraph2">
+        By default, the plugin uses the Power Ampache 2 owned Genius token to fetch lyrics. However, you can enter your own token in the provided text box. This is recommended if the default one gets rate-limited by Genius.
+    </string>
+    <string name="lyrics_plugin_troubleshooting_label">⚠️ Troubleshooting:</string>
+    <string name="lyrics_plugin_troubleshooting_text">If you start noticing missing or inconsistent lyrics, try using the "Clear Stored Lyrics" button to reset the local lyrics cache. This often resolves temporary issues with fetching or displaying lyrics.
+    </string>
 </resources>

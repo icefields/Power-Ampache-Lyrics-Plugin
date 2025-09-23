@@ -8,14 +8,14 @@ plugins {
 
 android {
     namespace = "luci.sixsixsix.powerampache2.lyricsplugin"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "luci.sixsixsix.powerampache2.lyricsplugin"
         minSdk = 30
-        targetSdk = 35
-        versionCode = 7
-        versionName = "0.01-07"
+        targetSdk = 36
+        versionCode = 8
+        versionName = "0.01-08"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -45,9 +45,9 @@ android {
         buildConfig = true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
-    }
+//    composeOptions {
+//        kotlinCompilerExtensionVersion = "1.5.15"
+//    }
 
     packaging {
         resources {
@@ -70,7 +70,7 @@ dependencies {
     implementation(libs.compose.ui.graphics)
     implementation(libs.compose.lifecycle.viewmodel)
     implementation(libs.androidx.activity.compose) // Required for setContent
-    implementation(libs.androidx.material)
+    implementation(libs.compose.material3)
 
 //    implementation("androidx.lifecycle:lifecycle-service:2.9.1")
 
