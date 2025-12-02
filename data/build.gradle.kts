@@ -23,7 +23,7 @@ android {
     val bearerToken = properties.getProperty("GENIUS_BEARER_TOKEN")
 
     defaultConfig {
-        minSdk = 30
+        minSdk = 29
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")

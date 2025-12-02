@@ -12,10 +12,10 @@ android {
 
     defaultConfig {
         applicationId = "luci.sixsixsix.powerampache2.lyricsplugin"
-        minSdk = 30
+        minSdk = 29
         targetSdk = 36
-        versionCode = 8
-        versionName = "0.01-08"
+        versionCode = 9
+        versionName = "0.01-09"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
