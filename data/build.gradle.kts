@@ -21,6 +21,8 @@ android {
         properties.load(project.rootProject.file("secretsnot.properties").inputStream())
     }
     val bearerToken = properties.getProperty("GENIUS_BEARER_TOKEN")
+    val baseUrlCanada = properties.getProperty("BASE_URL_POWER_LYRICS")
+    val baseUrlRussia = properties.getProperty("BASE_URL_POWER_LYRICS_RUSSIA")
 
     defaultConfig {
         minSdk = 29
@@ -29,6 +31,8 @@ android {
         consumerProguardFiles("consumer-rules.pro")
 
         buildConfigField("String", "BEARER_TOKEN", bearerToken)
+        buildConfigField("String", "BASE_URL_POWER_LYRICS", baseUrlCanada)
+        buildConfigField("String", "BASE_URL_POWER_LYRICS_RUSSIA", baseUrlRussia)
 
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")

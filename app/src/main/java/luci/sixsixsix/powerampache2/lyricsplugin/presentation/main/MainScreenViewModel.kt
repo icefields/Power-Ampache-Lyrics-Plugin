@@ -38,9 +38,14 @@ class MainScreenViewModel @Inject constructor(
     private val sharedPreferencesManager: SharedPreferencesManager
 ): ViewModel() {
     val tokenStateFlow = sharedPreferencesManager.tokenStateFlow
+    val mirrorStateFlow = sharedPreferencesManager.selectedMirrorFlow
 
     fun setToken(newToken: String) {
         sharedPreferencesManager.token = newToken
+    }
+
+    fun setMirror(newMirror: String) {
+        sharedPreferencesManager.selectedMirror = newMirror
     }
 
     fun clearStoredLyrics() = viewModelScope.launch {

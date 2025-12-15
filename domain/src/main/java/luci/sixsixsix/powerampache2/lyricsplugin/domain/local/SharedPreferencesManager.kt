@@ -27,4 +27,7 @@ interface SharedPreferencesManager {
     // most apis require an auth token
     var token: String
     val tokenStateFlow: StateFlow<String>
+
+    var selectedMirror: String
+    val selectedMirrorFlow: StateFlow<String>
 }

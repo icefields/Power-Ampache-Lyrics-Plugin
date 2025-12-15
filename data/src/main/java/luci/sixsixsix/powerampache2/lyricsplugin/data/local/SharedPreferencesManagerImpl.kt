@@ -23,14 +23,16 @@ package luci.sixsixsix.powerampache2.lyricsplugin.data.local
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import luci.sixsixsix.powerampache2.lyricsplugin.data.api.common.BASE_URL_POWER_LYRICS
 import luci.sixsixsix.powerampache2.lyricsplugin.data.di.WeakContext
-import luci.sixsixsix.powerampache2.lyricsplugin.data.genius_api.common.BEARER_TOKEN
+import luci.sixsixsix.powerampache2.lyricsplugin.data.api.common.BEARER_TOKEN_GENIUS
 import luci.sixsixsix.powerampache2.lyricsplugin.domain.local.SharedPreferenceDelegate
 import luci.sixsixsix.powerampache2.lyricsplugin.domain.local.SharedPreferencesManager
 import javax.inject.Inject
 import javax.inject.Singleton
 
 private const val KEY_BEARER_TOKEN = "luci.sixsixsix.powerampache2.plugin.lyrics.data.KEY_BEARER_TOKEN"
+private const val KEY_SELECTED_MIRROR = "luci.sixsixsix.powerampache2.plugin.lyrics.data.KEY_SELECTED_MIRROR"
 
 @Singleton
 class SharedPreferencesManagerImpl @Inject constructor(
@@ -40,11 +42,22 @@ class SharedPreferencesManagerImpl @Inject constructor(
     private val _tokenStateFlow = MutableStateFlow(token)
     override val tokenStateFlow: StateFlow<String> = _tokenStateFlow
 
+    private val _selectedMirrorFlow = MutableStateFlow(selectedMirror)
+    override val selectedMirrorFlow: StateFlow<String> = _selectedMirrorFlow
+
     override var token: String
-        get() = getString(KEY_BEARER_TOKEN, BEARER_TOKEN).run {
-            if (isNullOrBlank()) BEARER_TOKEN else this
+        get() = getString(KEY_BEARER_TOKEN, BEARER_TOKEN_GENIUS).run {
+            if (isNullOrBlank()) BEARER_TOKEN_GENIUS else this
         }
         set(value) = setString(KEY_BEARER_TOKEN, value).also {
             _tokenStateFlow.value = token
+        }
+
+    override var selectedMirror: String
+        get() = getString(KEY_SELECTED_MIRROR, BASE_URL_POWER_LYRICS).run {
+            if (isNullOrBlank()) BASE_URL_POWER_LYRICS else this
+        }
+        set(value) = setString(KEY_SELECTED_MIRROR, value).also {
+            _selectedMirrorFlow.value = selectedMirror
         }
 }

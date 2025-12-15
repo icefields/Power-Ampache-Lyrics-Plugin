@@ -43,10 +43,12 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import luci.sixsixsix.powerampache2.lyricsplugin.R
+import luci.sixsixsix.powerampache2.lyricsplugin.data.BuildConfig
 import luci.sixsixsix.powerampache2.lyricsplugin.presentation.main.components.ChangeTokenView
 import luci.sixsixsix.powerampache2.lyricsplugin.presentation.main.components.ClearDbButton
 import luci.sixsixsix.powerampache2.lyricsplugin.presentation.main.components.LyricsPluginInstructions
 import luci.sixsixsix.powerampache2.lyricsplugin.presentation.main.components.MainTopBar
+import luci.sixsixsix.powerampache2.lyricsplugin.presentation.main.components.MirrorSelectionView
 
 val mainFontSize = 16.sp
 val smallFontSize = 12.sp
@@ -63,9 +65,13 @@ fun MainScreen(
     BackHandler(onBack = onBack)
 
     val token = mainScreenViewModel.tokenStateFlow.collectAsStateWithLifecycle()
+    val mirror = mainScreenViewModel.mirrorStateFlow.collectAsStateWithLifecycle()
+
     MainScreenContent(
         modifier = modifier,
         token = token.value,
+        currentMirror = mirror.value,
+        onMirrorChange = mainScreenViewModel::setMirror,
         onTokenChange = mainScreenViewModel::setToken,
         onClearLyrics = mainScreenViewModel::clearStoredLyrics,
         onBack = onBack
@@ -76,6 +82,8 @@ fun MainScreen(
 private fun MainScreenContent(
     modifier: Modifier = Modifier,
     token: String,
+    currentMirror: String,
+    onMirrorChange: (String) -> Unit,
     onTokenChange: (String) -> Unit,
     onClearLyrics: () -> Unit,
     onBack: () -> Unit
@@ -94,6 +102,8 @@ private fun MainScreenContent(
                     .padding(top = screenPadding).padding(horizontal = screenPadding)
 
             ) {
+                MirrorSelectionView(currentMirror, onMirrorChange)
+                Divider(Modifier.fillMaxWidth().padding(vertical = screenPadding))
                 ChangeTokenView(Modifier.fillMaxWidth(), token = token, onTokenChange)
                 Divider(Modifier.fillMaxWidth().padding(vertical = screenPadding))
                 ClearDbButton(Modifier.fillMaxWidth(), onClearLyrics)
@@ -118,5 +128,11 @@ private fun FetchLyricsDebugButton(mainScreenViewModel: MainScreenViewModel) {
 @Composable
 fun previewMainScreen(){
     MainScreenContent(
-        token = "abcde666", onTokenChange =  { }, onClearLyrics =  { }, onBack = { })
+        currentMirror = BuildConfig.BASE_URL_POWER_LYRICS,
+        onMirrorChange = { },
+        token = "abcde666",
+        onTokenChange =  { },
+        onClearLyrics =  { },
+        onBack = { }
+    )
 }

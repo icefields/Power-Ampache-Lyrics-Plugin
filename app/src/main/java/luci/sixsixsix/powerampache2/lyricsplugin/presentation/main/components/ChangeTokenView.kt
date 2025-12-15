@@ -22,8 +22,11 @@
 package luci.sixsixsix.powerampache2.lyricsplugin.presentation.main.components
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -32,7 +35,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import luci.sixsixsix.powerampache2.lyricsplugin.R
-import luci.sixsixsix.powerampache2.lyricsplugin.data.genius_api.common.BEARER_TOKEN
+import luci.sixsixsix.powerampache2.lyricsplugin.data.api.common.BEARER_TOKEN_GENIUS
 import luci.sixsixsix.powerampache2.lyricsplugin.presentation.main.smallFontSize
 
 @Composable
@@ -42,9 +45,11 @@ fun ChangeTokenView(
     onTokenChange: (String) -> Unit
 ) {
     // Do not visualize token if using the default one.
-    val tokenVisibleValue = if (token != BEARER_TOKEN) token else ""
+    val tokenVisibleValue = if (token != BEARER_TOKEN_GENIUS) token else ""
 
     Column(modifier) {
+        TitleText(R.string.fallback_genius_title)
+        Spacer(modifier = Modifier.height(16.dp))
         TextField(
             modifier = Modifier.fillMaxWidth(),
             value = tokenVisibleValue,

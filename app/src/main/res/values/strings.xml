@@ -5,14 +5,15 @@
     <string name="token_insert_label">Custom Genius Token</string>
     <string name="clear_stored_title">Clear Stored Lyrics</string>
     <string name="clear_stored_subtitle">Try this if you start getting invalid lyrics in Power Ampache</string>
+    <string name="mirror_select_title">Select your preferred mirror</string>
+    <string name="fallback_genius_title">Genius Lyrics (fallback)</string>
 
     <string name="lyrics_plugin_title">🎵 Lyrics Plugin Setup</string>
     <string name="lyrics_plugin_paragraph1">
         This plugin integrates seamlessly with Power Ampache 2. Once installed, no additional setup is required — it will begin working automatically within the app.
     </string>
     <string name="lyrics_plugin_paragraph2">
-        By default, the plugin uses the Power Ampache 2 owned Genius token to fetch lyrics. However, you can enter your own token in the provided text box. This is recommended if the default one gets rate-limited by Genius.
-    </string>
+        By default, the plugin uses the Power Lyrics backend to fetch lyrics. You can choose from any of the provided mirrors or add your own custom mirror. As a fallback, the plugin uses the Power Ampache 2–owned Genius token to retrieve lyrics. You can also use your own Genius token by entering it in the provided text box; this is recommended if the default token becomes rate-limited by Genius.</string>
     <string name="lyrics_plugin_troubleshooting_label">⚠️ Troubleshooting:</string>
     <string name="lyrics_plugin_troubleshooting_text">If you start noticing missing or inconsistent lyrics, try using the "Clear Stored Lyrics" button to reset the local lyrics cache. This often resolves temporary issues with fetching or displaying lyrics.
     </string>
