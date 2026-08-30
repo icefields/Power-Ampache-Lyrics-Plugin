@@ -16,6 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -53,7 +54,13 @@ fun MirrorSelectionView(
                     onClick = null
                 )
                 Text(
-                    text = option,
+                    text = when(option) {
+                        BuildConfig.BASE_URL_POWER_LYRICS ->
+                            stringResource(R.string.north_america)
+                        BuildConfig.BASE_URL_POWER_LYRICS_RUSSIA ->
+                            stringResource(R.string.russia)
+                        else -> stringResource(R.string.error)
+                    },
                     modifier = Modifier.padding(start = 8.dp)
                 )
             }
