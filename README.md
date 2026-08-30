@@ -1,4 +1,4 @@
-# Power-Ampache-Lyrics-Plugin
+# Power Ampache Lyrics Plugin
 
 | | | | |
 |---|---|---|---|
